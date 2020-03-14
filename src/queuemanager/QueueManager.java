@@ -32,6 +32,9 @@ public class QueueManager {
                 System.out.println("Using a sorted array.");
                 break;
             case "ua":
+                  q = new UnorderedArrayPriorityQueue<>(8);
+                System.out.println("Using a Unordered array.");
+                break;
             case "sl":
             case "ul":
             case "h":
@@ -55,20 +58,8 @@ public class QueueManager {
 
         /* Main loop */
         while (!input.toLowerCase().equals("q")) {
-            if (input.toLowerCase().charAt(0) == 'a') {
-
-                /* Add an item to the queue */
-                String name = input.substring(2, input.lastIndexOf(' '));
-                Person person = new Person(name);
-                int priority = Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
-                System.out.println("Adding " + person.getName() + " with priority " + priority);
-                try {
-                    q.add(person, priority);
-                } catch (QueueOverflowException e) {
-                    System.out.println("Add operation failed: " + e);
-                }
-            } else if (input.toLowerCase().charAt(0) == 'h') {
-
+            if (input.toLowerCase().charAt(0) != 'a') if (input.toLowerCase().charAt(0) == 'h') {
+                
                 /* Display the item at the head of the queue */
                 try {
                     String name = q.head().getName();
@@ -98,6 +89,17 @@ public class QueueManager {
 
                 /* Print out the entire queue (in no particular order) */
                 System.out.println(q);
+            } else {
+                /* Add an item to the queue */
+                String name = input.substring(2, input.lastIndexOf(' '));
+                Person person = new Person(name);
+                int priority = Integer.parseInt(input.substring(input.lastIndexOf(' ') + 1));
+                System.out.println("Adding " + person.getName() + " with priority " + priority);
+                try {
+                    q.add(person, priority);
+                } catch (QueueOverflowException e) {
+                    System.out.println("Add operation failed: " + e);
+                }
             }
             System.out.print("> ");
             input = stdin.nextLine();
