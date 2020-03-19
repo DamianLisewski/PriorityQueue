@@ -73,14 +73,14 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
     // greater element and current points to immediate element that is less than *data* being
     // inserted.
     
-      previous.setNext(temp);
-     temp.setNext(current);
-     head = previous.getNext();
-             
+         previous.setNext(temp);
+        temp.setNext(current);
+    
+           head = previous.getNext();  
        
       
 }
-
+ 
         
          
         }

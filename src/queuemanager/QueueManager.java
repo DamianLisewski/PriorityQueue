@@ -40,7 +40,13 @@ public class QueueManager {
                 System.out.println("Using a Sorted Linked List.");
                 break;
             case "ul":
+                q = new UnorderedLinkedList();
+                System.out.println("Using a Unordered Linked List.");
+                break;
             case "h":
+                //q = new MaxHeap();
+               // System.out.println("Using Max Heap.");
+                //break;
             default:
                 q = new SortedArrayPriorityQueue<>(8);
                 System.out.println("Invalid choice, using sorted array.");

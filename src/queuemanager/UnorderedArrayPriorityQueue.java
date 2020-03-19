@@ -69,7 +69,7 @@ public class UnorderedArrayPriorityQueue<T> implements PriorityQueue<T> {
                       location =  i;                     
             }   
             }
-             System.out.println("Tailindex is "+tailIndex);
+            // System.out.println("Tailindex is "+tailIndex);
             for(int i =location; i<tailIndex;i++ )
             {
                     storage[i]=storage[i+1];
