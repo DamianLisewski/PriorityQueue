@@ -1,8 +1,10 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package queuemanager;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,9 +15,8 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Damian
- * @param <T>
  */
-public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
+public class UnorderedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
         private Object[] storage;
 
     /**
@@ -29,7 +30,7 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
      * This is equal to the item count minus one.
      */
     private int tailIndex;
-    public SortedArrayPriorityQueueTest() {
+    public UnorderedArrayPriorityQueueTest() {
     }
 
     
@@ -53,7 +54,7 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
     public void testHead()  {
         Object item = "Damian";
         int priority = 1;
-        System.out.println("SortedArray Priority Test:");
+        System.out.println("UnsortedArray Priority Test:");
         System.out.println("testHead");
         
          storage[0] = new PriorityItem<>(item, priority);
@@ -79,7 +80,7 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
     public void testAdd() {
      Object item = "Damian";
         int priority = 1;
-        System.out.println("SortedArray Priority Test:");
+        System.out.println("UnsortedArray Priority Test:");
         System.out.println("testAdd");
         
          storage[0] = new PriorityItem<>(item, priority);
@@ -103,19 +104,33 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
     public void testRemove() {
          Object item = "Damian";
         int priority = 1;
-        System.out.println("SortedArray Priority Test:");
+        System.out.println("UnsortedArray Priority Test:");
         System.out.println("testRemove");
         
          storage[0] = new PriorityItem<>(item, priority);
          tailIndex=tailIndex+1;
         int expResult = -1;
-        
-          for (int i = 0; i < tailIndex; i++) {
-                storage[i] = storage[i + 1];
+        int location = 0;
+         for (int i = 0; i < tailIndex; i++) {
+                while (((PriorityItem<T>) storage[i]).getPriority() > priority) {
+                     priority = ((PriorityItem<T>) storage[i]).getPriority();
+                      location =  i;                     
+            }   
             }
-            tailIndex = tailIndex - 1;
+            // System.out.println("Tailindex is "+tailIndex);
+            for(int i =location; i<tailIndex;i++ )
+            {
+                    storage[i]=storage[i+1];
+                    tailIndex = tailIndex-1;
+                    
+            }
+            
+           tailIndex=tailIndex-1; 
+        
+        
+           
            int result = tailIndex;
-             
+            // System.out.println(result);
              if(expResult==result)  {
             System.out.println("Passed");
             
@@ -130,7 +145,7 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
     @Test
     @Override
     public void testIsEmpty() throws NullPointerException {
-         System.out.println("SortedArray Priority Test:");
+         System.out.println("UnsortedArray Priority Test:");
         System.out.println("TestisEmpty");
         
        
@@ -157,7 +172,7 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
     @Test
     @Override
     public void testToString() {
-        System.out.println("SortedArray Priority Test:");
+        System.out.println("UnsortedArray Priority Test:");
         System.out.println("toString()");
         PriorityItem instance;
         instance = new PriorityItem("Damian",1);
@@ -183,3 +198,4 @@ public class SortedArrayPriorityQueueTest<T> implements PriorityQueueTest<T> {
  
     
 }
+
