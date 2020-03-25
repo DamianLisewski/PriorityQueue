@@ -29,7 +29,7 @@ public class UnorderedArrayPriorityQueue<T> implements PriorityQueue<T> {
         capacity = size;
         tailIndex = -1;
     }
-
+        //This Method returns the head which should be the item in storage index 0.
     @Override
     public T head() throws QueueUnderflowException {
         if (isEmpty()) {
@@ -38,7 +38,7 @@ public class UnorderedArrayPriorityQueue<T> implements PriorityQueue<T> {
             return ((PriorityItem<T>) storage[0]).getItem();
         }
     }
-
+    //add newly inserted item to the begining of the array.
     @Override
     public void add(T item, int priority) throws QueueOverflowException {
           tailIndex = tailIndex + 1;
@@ -54,7 +54,7 @@ public class UnorderedArrayPriorityQueue<T> implements PriorityQueue<T> {
         }
         
     }
-
+        //removes item based on the highest priority. Item location is determined by the travering of the array.
     @Override
     public void remove() throws QueueUnderflowException {
         if (isEmpty()) {
@@ -85,11 +85,13 @@ public class UnorderedArrayPriorityQueue<T> implements PriorityQueue<T> {
     }
 
     @Override
+    //checks if array is empty. This is the case when the tailindex varialbe is <0;
     public boolean isEmpty() {
         return tailIndex < 0;
     }
 
     @Override
+    //Details of the array are shown by tranverisng the array.
     public String toString() {
         String result = "[";
         for (int i = 0; i <= tailIndex; i++) {

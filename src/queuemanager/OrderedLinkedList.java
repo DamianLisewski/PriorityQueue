@@ -1,3 +1,7 @@
+//Reference
+//https://stackoverflow.com/questions/36046948/sorted-insert-into-singly-linked-list-from-scratch
+
+
 package queuemanager;
 
 import java.util.ArrayList;
@@ -12,7 +16,9 @@ public class OrderedLinkedList<T> implements PriorityQueue<T> {
     private ListNode<T> head;
     private ListNode<T> temp;
     private ListNode<T> newnode;
-     
+    
+    
+//when class is instanciated , the crutial variables are set to null.
     public OrderedLinkedList() {
         head = null;
         temp = null;
@@ -20,11 +26,13 @@ public class OrderedLinkedList<T> implements PriorityQueue<T> {
     }
     
     @Override
+    //return true is head is null
     public boolean isEmpty() {
         return head == null;
     }
     
     @Override
+    //returns object stored in the head.
     public T head() {
         if (isEmpty()) {
             try {
@@ -35,7 +43,7 @@ public class OrderedLinkedList<T> implements PriorityQueue<T> {
         }
         return head.getItem();
     }
-    
+    //removes item in head as sets next item in list to head.
     @Override
     public void remove() {
         if (isEmpty()) {
@@ -47,7 +55,10 @@ public class OrderedLinkedList<T> implements PriorityQueue<T> {
         }
         head = head.getNext();
     }
-     
+    //method used for adding item to list
+    //method inserts into head in head is null.
+    //then method tranveses the list to find entry point 
+    //variables are storing previous current and next element in the data in order to assign value to current variable in loop.
    @Override
    public void add(T item, int priority)
    {
@@ -90,7 +101,7 @@ public class OrderedLinkedList<T> implements PriorityQueue<T> {
       
       
    
-    
+    //Looping throughout the list and collecting and displaying current information stored in listnode variable.
     @Override
     public String toString() {
         
@@ -110,15 +121,7 @@ public class OrderedLinkedList<T> implements PriorityQueue<T> {
         return result;
     }
     
-    private int size() {
-        ListNode<T> node = head;
-        int result = 0;
-        while (node != null) {
-            result = result + 1;
-            node = node.getNext();
-        }
-        return result;
-    }
+
 
     
 

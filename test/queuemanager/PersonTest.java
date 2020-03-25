@@ -5,10 +5,9 @@
  */
 package queuemanager;
 
-import org.junit.After;
-import org.junit.AfterClass;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -37,7 +36,7 @@ public class PersonTest {
     @Test
     public void testGetName() {
             System.out.println("Person Test:");
-         System.out.println("GetName:");
+         System.out.println("GetName()");
         Person instance;
         instance = new Person("Damian");
         String expResult = "Damian";
@@ -64,7 +63,7 @@ public class PersonTest {
     @Test
     public void testToString() {
           System.out.println("Person Test:");
-       System.out.println("toString");
+       System.out.println("toString()");
         Person instance;
         instance = new Person("Damian");
        String expResult = "Damian";

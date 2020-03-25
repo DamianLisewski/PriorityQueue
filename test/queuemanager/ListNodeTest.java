@@ -5,10 +5,9 @@
  */
 package queuemanager;
 
-import org.junit.After;
-import org.junit.AfterClass;
+
 import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -34,7 +33,7 @@ public class ListNodeTest {
     @Test
     public void testGetItem() {
         System.out.println("ListNode Test:");
-        System.out.println("getItem");
+        System.out.println("getItem()");
         
         ListNode instance= new ListNode("Damian",1,null);
         Object expResult = instance.getItem();
@@ -62,7 +61,7 @@ public class ListNodeTest {
     @Test
     public void testGetPriority() {
          System.out.println("ListNode Test:");
-        System.out.println("GetPriority");
+        System.out.println("GetPriority()");
         
         ListNode instance= new ListNode("Damian",1,null);
         int expResult = 1;
@@ -90,7 +89,7 @@ public class ListNodeTest {
     @Test
     public void testGetNext() {
          System.out.println("ListNode Test:");
-        System.out.println("GetNext");
+        System.out.println("GetNext()");
          ListNode next= new ListNode("Damian",1,null);
         ListNode instance= new ListNode("Damian",1,next);
         Object expResult =  next;
@@ -115,7 +114,7 @@ public class ListNodeTest {
     @Test
     public void testSetNext() {
          System.out.println("ListNode Test:");
-        System.out.println("setNext");
+        System.out.println("setNext()");
         ListNode nextNode = new ListNode("Damian",1,null); ;
         ListNode instance = new ListNode("Damian",1,null);
         instance.setNext(nextNode);

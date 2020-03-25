@@ -1,3 +1,6 @@
+//Reference
+//https://runestone.academy/runestone/books/published/pythonds/BasicDS/ImplementinganUnorderedListLinkedLists.html
+
 package queuemanager;
 
 import java.util.ArrayList;
@@ -12,7 +15,7 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
     private ListNode<T> head;
     private ListNode<T> temp;
     
-     
+  //when class is instanciated , the crutial variables are set to null.   
     public UnorderedLinkedList() {
         head = null;
         temp = null;
@@ -20,11 +23,13 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
     }
     
     @Override
+    //return true is head is null
     public boolean isEmpty() {
         return head == null;
     }
     
     @Override
+    //returns object stored in the head.
     public T head() {
         if (isEmpty()) {
             try {
@@ -37,6 +42,7 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
     }
     
     @Override
+    //method loops through the list to find highest priority item and sets the variables around the listnode to remove space made when removing the item.
     public void remove() {
         if (isEmpty()) {
             try {
@@ -96,6 +102,7 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
     
      
    @Override
+   //add method stores new item in the head of the list.
    public void add(T item, int priority)
    {
     if (head == null) {
@@ -115,6 +122,7 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
    
     
     @Override
+    //Looping throughout the list and collecting and displaying current information stored in listnode variable.
     public String toString() {
         
         String result = "[";
@@ -133,15 +141,7 @@ public class UnorderedLinkedList<T> implements PriorityQueue<T> {
         return result;
     }
     
-    private int size() {
-        ListNode<T> node = head;
-        int result = 0;
-        while (node != null) {
-            result = result + 1;
-            node = node.getNext();
-        }
-        return result;
-    }
+   
 
     
 
